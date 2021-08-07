@@ -1,34 +1,21 @@
-# Assignmnet 7
+# Session 13 - Generators and Iteration tools 
+
+## Goal 1
+
+Create a lazy iterator that will return a named tuple of the data in each row. The data types should be appropriate - i.e. if the column is a date, you should be storing dates in the named tuple, if the field is an integer, then it should be stored as an integer, etc.
+
+## Goal 2
+
+Calculate the number of violations by car make.
 
 
-  1.Write a closure that takes a function and then check whether the function passed has a docstring with more than 50 characters. 50 is stored as a free variable (+ 4 tests) - 200
-  
-  2.Write a closure that gives you the next Fibonacci number (+ 2 tests) - 100
-  
-  3.We wrote a closure that counts how many times a function was called. Write a new one that can keep a track of how many times add/mul/div functions were called, and update a global dictionary variable with the counts (+ 6 tests) - 250
-  
-  4.Modify above such that now we can pass in different dictionary variables to update different dictionaries (+ 6 tests) - 250
-  Once done, upload the code to github, run actions, and then proceed to answer S7 - Assignment Solutions. 
-  
-  
-  
-
-### Functions 
-
-1. check_docstring  ->     closure that takes a function and then check whether the function passed has a docstring with more than 50 characters. 50 is stored as a free variable
-
-![image](https://user-images.githubusercontent.com/73247157/123450430-5cc6ba00-d5fa-11eb-8cba-ff531a566996.png)
-
-2.get next fibonaaci  -> Write a closure that gives you the next Fibonacci number
-
-![image](https://user-images.githubusercontent.com/73247157/123450573-8384f080-d5fa-11eb-821b-f44e6ae88d38.png)
-
-3.func_count -> Closure  that can keep a track of how many times add/mul/div functions were called, and update a global dictionary variable with the counts
-
-![image](https://user-images.githubusercontent.com/73247157/123450694-9f889200-d5fa-11eb-8f03-61ab53bde8e4.png)
-
-4.func_count_dict -> Modifies func_count such that now we can pass in different dictionary variables to update different dictionaries
-
-![image](https://user-images.githubusercontent.com/73247157/123450788-b62ee900-d5fa-11eb-97b6-f3eb8427ab48.png)
+github link : https://github.com/dine1717/EPAI3/blob/Session13/session13.ipynb
 
 
+### For goal one, We have implemented following function-
+  - 1. Function cast_row: Function takes input as string for line of file and typecast the integer and date type objects from string to respective types.
+  - 2. read_ticket_lazy: Generator object which takes input as file name. Creates a named tuple type of the header of file. reads the lines for file and yields the file rows and named tuple one at a time.
+  - 3. We have implemented and tested the generator object in the session15.pynb file
+
+### For goal two, We have implemented following function-
+  - 1. Function get_voilations_by_car_make: Function takes make_name (example 'BMW') as input and returns the number of violations by this specific car make. We create a generator object with vehicle makes as elements. we use the collections counter object to count the violations.
